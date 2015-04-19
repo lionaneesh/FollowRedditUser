@@ -36,9 +36,7 @@ function doStuff(users) {
 			        if (child.data.permalink != stored_perma && new_perma == null) {
 			            new_perma = child.data.permalink;
 					}
-			        else {
-			        	show(child.data.title, child.data.selftext, "http://reddit.com" + child.data.permalink);
-			        }
+			        show(child.data.title, child.data.selftext, "http://reddit.com" + child.data.permalink);
 			}
 		}).done(function() {
 			if (new_perma != null) {
@@ -58,7 +56,7 @@ function doStuff(users) {
 
 function initiate() {
   users = localStorage.users.split(",");
-  interval_id = setInterval(function() { doStuff(users); } , 60000);
+  interval_id = setInterval(function() { doStuff(users); } , 10000);
   doStuff(users);
 }
 
