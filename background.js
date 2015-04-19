@@ -54,13 +54,14 @@ function doStuff(users) {
 	});
 }
 
-function initiate() {
-  users = localStorage.users.split(",");
-  interval_id = setInterval(function() { doStuff(users); } , 10000);
-  doStuff(users);
-}
+chrome.storage.onChanged.addListener(function(changes, storageNamespace) {
+	if ('users' in changes) {
+		if (interval_id) { clearInterval(interval_id); }
+		initiate(changes['users']['newValue'].split(","));
+	}
+});
 
-// Test for notification support.
-if (window.Notification) {
-	initiate();
+function initiate(users) {
+  interval_id = setInterval(function() { doStuff(users); } , 60000);
+  doStuff(users);
 }
