@@ -1,0 +1,20 @@
+{
+  "name": "Follow reddit user",
+  "version": "1.0",
+  "description":
+    "Follow reddit users, get a notification everytime they post something.",
+  "icons": {"lg": "64.png"},
+  "permissions": [
+    "notifications",
+    "storage",
+     "http://www.reddit.com/*"
+  ],
+  "options_page": "options.html",
+  "background": { "scripts": ["jquery.js", "background.js"] },
+  "manifest_version": 2,
+
+  // crbug.com/134315
+  "web_accessible_resources": [
+    "48.png"
+  ]
+}
