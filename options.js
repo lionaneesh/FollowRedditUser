@@ -1,5 +1,7 @@
 window.addEventListener('load', function() {
-  options.users.value = localStorage.users;
+  if (localStorage.users != undefined) {
+   options.users.value = localStorage.users;
+  }
   options.update.onclick = function(e) {
     e.preventDefault();
     localStorage.users = options.users.value;
